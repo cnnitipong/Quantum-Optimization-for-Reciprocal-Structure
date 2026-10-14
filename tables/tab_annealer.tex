@@ -1,0 +1,35 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\caption{What the annealer adds: lowest compliance [J] from the same random initial design per seed for the greedy coordinate-descent decode, the single-flip annealer (25 reads, 90 sweeps) and the block annealer, at a soft ($w_{\text{m}}=5$) and a tight ($w_{\text{m}}=1000$, matched mass) mass penalty; the $w_{\text{m}}=20$ arms are in the data package. The mass error [\%] of each reported design is given in parentheses. Differences are relative to the decode (negative is better) with the exact paired Wilcoxon $p$ in parentheses; its floor is 0.002 at ten seeds, 0.0625 at five and 0.25 at three (the CS3 decode and single-flip arms at $w_{\\text{m}}=5$). On the bridge at $w_{\text{m}}=5$ the single-flip annealer at 100 reads and 400 sweeps attains 3882 $\pm$ 185\,J.}
+\label{tab:annealer}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llccc}
+\toprule
+Case & $w_{\text{m}}$ & Decode & Single-flip & Block \\
+\midrule
+CS2 nexorade & 5 & 296 $\pm$ 33 (+29) & 283 $\pm$ 26 (+33) & 336 $\pm$ 33 (+20) \\
+ & & vs decode: & $-4.4$\% ($p=0.492$) & $+13.5$\% ($p=0.027$) \\[2pt]
+CS2 nexorade & 1000 & 738 $\pm$ 161 (+2) & 436 $\pm$ 14 (+0) & 406 $\pm$ 7 (+0) \\
+ & & vs decode: & $-40.9$\% ($p=0.002$) & $-44.9$\% ($p=0.002$) \\[2pt]
+CS3 hex.\ nexorade & 5 & 1659 $\pm$ 208 (+32) & 1604 $\pm$ 50 (+34) & 1845 $\pm$ 165 (+26) \\
+ & & vs decode: & $-3.3$\% ($p=0.750$) & $+11.3$\% ($p=0.500$) \\[2pt]
+CS3 hex.\ nexorade & 1000 & 4683 $\pm$ 1439 (+1) & 2614 $\pm$ 101 (+0) & 2473 $\pm$ 24 (+0) \\
+ & & vs decode: & $-44.2$\% ($p=0.062$) & $-47.2$\% ($p=0.062$) \\[2pt]
+CS4 bridge & 5 & 3253 $\pm$ 32 (+6) & 4360 $\pm$ 336 (-1) & 3235 $\pm$ 52 (+12) \\
+ & & vs decode: & $+34.0$\% ($p=0.002$) & $-0.5$\% ($p=0.492$) \\[2pt]
+CS4 bridge & 1000 & 5661 $\pm$ 1634 (+2) & 7406 $\pm$ 1008 (-1) & 3603 $\pm$ 143 (+0) \\
+ & & vs decode: & $+30.8$\% ($p=0.020$) & $-36.4$\% ($p=0.002$) \\[2pt]
+CS5 dome & 5 & 2243 $\pm$ 72 (+26) & 1920 $\pm$ 60 (+38) & 2205 $\pm$ 54 (+24) \\
+ & & vs decode: & $-14.4$\% ($p=0.062$) & $-1.7$\% ($p=0.625$) \\[2pt]
+CS5 dome & 1000 & 4412 $\pm$ 867 (-0) & 3033 $\pm$ 151 (+0) & 2656 $\pm$ 38 (+0) \\
+ & & vs decode: & $-31.3$\% ($p=0.125$) & $-39.8$\% ($p=0.062$) \\[2pt]
+CS6 vault & 5 & 1124 $\pm$ 28 (+23) & 1044 $\pm$ 50 (+31) & 1133 $\pm$ 46 (+27) \\
+ & & vs decode: & $-7.1$\% ($p=0.125$) & $+0.9$\% ($p=0.625$) \\[2pt]
+CS6 vault & 1000 & 3083 $\pm$ 1103 (-2) & 1500 $\pm$ 89 (-1) & 1370 $\pm$ 33 (+0) \\
+ & & vs decode: & $-51.4$\% ($p=0.062$) & $-55.6$\% ($p=0.062$) \\[2pt]
+\bottomrule
+\end{tabular}
+\normalsize
+\end{table}

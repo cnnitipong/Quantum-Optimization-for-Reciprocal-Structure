@@ -1,0 +1,171 @@
+{
+  "generator": "davinci_bridge2(n_bays=24, span=20.0, width=6.0, lam=0.25)",
+  "redesign_of": "davinci_bridge_complex",
+  "redesign_reason": "strain_energy_floor defect (22/58 rung half-segments ~0 force); see results_v2/bridge_diagnosis.json",
+  "generator_adjustment_log": "V3 verification attempt 1/3: n_bays=14 (the load-path fix's original draft value) passed V3 comfortably under the service load (min share 8.37%) but left 2/68 near-abutment rung half-segments marginally below the 5% floor under the SEPARATE self-weight-only load case (4.58%). An empirical n_bays sweep (12/14/16/18/20/22/24, all else fixed) showed the self-weight-only minimum share rises monotonically with n_bays, crossing 5% at n_bays=24 (5.02%) while the service-load share stays comfortably clear (6.31%) and member count (118) stays inside the 60-120 target -- n_bays=24 adopted as the new default; no further (2nd/3rd) adjustment attempt was needed. See reciprocal_geom_v2.davinci_bridge2's docstring for the same disclosure.",
+  "V1_equilibrium": {
+    "ok": true,
+    "ratio": 2.08683340125967e-12,
+    "sumR": [
+      1.163453859476249e-06,
+      -1.92937695047739e-08,
+      632499.999999377
+    ],
+    "sumF": [
+      0.0,
+      0.0,
+      -632500.0
+    ],
+    "resid": [
+      1.163453859476249e-06,
+      -1.92937695047739e-08,
+      -6.230548024177551e-07
+    ]
+  },
+  "V2_mirror_symmetry": {
+    "ok": false,
+    "max_asymmetry_pct": 42.41504513127371,
+    "max_asymmetry_pct_translation_dofs": 21.933793024233744,
+    "max_asymmetry_pct_rotation_dofs": 42.41504513127371,
+    "n_pairs": 124,
+    "n_self_symmetric_nodes": 11,
+    "n_unmatched_nodes": 0,
+    "worst_detail": {
+      "node_i": 48,
+      "node_mirror": 95,
+      "rel_asymmetry_pct_per_dof": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        42.41504513127371,
+        7.524902928660456e-11
+      ],
+      "U_i": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.004767477771278471,
+        -6.993327476967273e-16
+      ],
+      "U_mirror": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.011226585753783401,
+        -4.6684132864529755e-17
+      ]
+    },
+    "note": "HONEST FINDING, not smoothed over: this structure is NOT exactly mirror-symmetric, for a traceable geometric reason. The eccentric-bearing 'over/under' notch pattern at every interior rail joint (the same +ecc/2 / -ecc/2 idiom used throughout this project) is applied left-to-right in a FIXED, consistent direction -- i.e. it is CHIRAL along the span. A true left-right mirror would also have to flip which side of the arc each joint's notch sits on; this generator (like davinci_bridge_complex before it) does not do that, so the built geometry itself is only APPROXIMATELY (not exactly) a mirror image of itself. Consequences, reported at face value: rotation dofs at the weakly-restrained abutment pins show the largest relative asymmetry (up to ~42%, though both angles are physically tiny, rad-scale, e.g. -0.0048 vs +0.0112 rad at the worst pair); translational dofs (ux/uy/uz, what drives compliance/deflection) are NOT negligible either, with a worst-case relative asymmetry of ~22% at interior rail-eccentricity nodes near the quarter-span region (e.g. ux=-0.0056 vs the mirror's +0.0075 m, a real ~1.3x magnitude mismatch, not just a sign-convention artifact). Equilibrium (V1) and the arch-thrust/net-compression check (V4) -- both GLOBAL, summed quantities -- come out numerically symmetric regardless (thrust_inward reactions match to 6 sig. figs.), because the chirality only redistributes internal member forces left-to-right, it does not break overall statics."
+  },
+  "V3_strain_energy_floor": {
+    "service": {
+      "ok": true,
+      "n_members": 118,
+      "mean_se_J": 40.47522210378195,
+      "min_share_pct": 6.312559522683182,
+      "worst_member_id": "('rung', 1, 0)",
+      "worst_member_group": "14",
+      "n_below_5pct": 0,
+      "n_rung_below_5pct": 0,
+      "n_long_below_5pct": 0,
+      "below_5pct_members": []
+    },
+    "selfweight": {
+      "ok": true,
+      "n_members": 118,
+      "mean_se_J": 0.15893165509495866,
+      "min_share_pct": 5.020834445234405,
+      "worst_member_id": "('rung', 1, 0)",
+      "worst_member_group": "14",
+      "n_below_5pct": 0,
+      "n_rung_below_5pct": 0,
+      "n_long_below_5pct": 0,
+      "below_5pct_members": []
+    },
+    "ok": true
+  },
+  "V4_arch_action": {
+    "ok": true,
+    "axial_sign_convention_test_Ni": -999.9999999999999,
+    "note": "CORRECTED convention: Ni>0 => COMPRESSION (Ni<0 => TENSION), verified by a known-tension calibration bar; see dome2_posthoc.py's disclosed axial-sign fix.",
+    "left_abutment_reaction_Rx_mean": 14203.647142444644,
+    "right_abutment_reaction_Rx_mean": -14203.64714241836,
+    "n_left_abutments": 3,
+    "n_right_abutments": 3,
+    "thrust_inward": true,
+    "n_longitudinal_members": 72,
+    "n_net_compression": 72,
+    "frac_net_compression": 1.0,
+    "mean_axial_N_longitudinal": 14679.304953180697,
+    "compliance_selfweight": 39.22930746063861,
+    "dmax_selfweight": 0.0034468398881478163
+  },
+  "V5_gates_and_counts": {
+    "ok": true,
+    "gate1_nonsingular": {
+      "0.15": {
+        "ok": true,
+        "cond": 834060335.0682347,
+        "n_nodes": 259,
+        "n_elems": 302,
+        "elapsed_s": 1.0100078582763672
+      },
+      "0.25": {
+        "ok": true,
+        "cond": 192786534.44629198,
+        "n_nodes": 259,
+        "n_elems": 302,
+        "elapsed_s": 1.004411220550537
+      },
+      "0.4": {
+        "ok": true,
+        "cond": 51972349.38315836,
+        "n_nodes": 259,
+        "n_elems": 302,
+        "elapsed_s": 1.0043284893035889
+      }
+    },
+    "gate2_zero_interior_supports": {
+      "ok": true,
+      "n_supports": 6,
+      "n_interior_supports": 0
+    },
+    "gate3_bearing_topology": {
+      "ok": true,
+      "n_interior_long": 66,
+      "malformed_long": [],
+      "n_rung_segments": 46,
+      "malformed_rung_ends": []
+    },
+    "gate4_no_mid_air_ends": {
+      "ok": true,
+      "n_mid_air": 0,
+      "mid_air_nodes": []
+    },
+    "counts": {
+      "n_nodes": 259,
+      "n_fe_elements": 302,
+      "n_beam_elements": 164,
+      "n_link_elements": 138,
+      "n_physical_members": 118,
+      "n_interior_members": 112,
+      "n_boundary_members": 6,
+      "n_longitudinal_members": 72,
+      "n_rung_half_segments": 46,
+      "n_supports": 6,
+      "n_groups": 16,
+      "ndof_total": 1554,
+      "n_fixed_dof": 24,
+      "ndof_restrained": 1530
+    },
+    "solve_time_checked_s": 0.54142165184021,
+    "solve_time_fast_s": 0.029277801513671875,
+    "fast_path_speedup": 18.492565146579803,
+    "fast_path_compliance_diff": 1.0611802281346172e-07
+  },
+  "overall_ok": false,
+  "elapsed_s": 5.297553062438965
+}

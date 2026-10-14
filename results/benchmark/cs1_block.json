@@ -1,0 +1,17 @@
+{
+ "fan4": {
+  "block_success": 10,
+  "single_success": 7,
+  "stored_single_success": 7
+ },
+ "fan5": {
+  "block_success": 10,
+  "single_success": 8,
+  "stored_single_success": 8
+ },
+ "fan6": {
+  "block_success": 10,
+  "single_success": 9,
+  "stored_single_success": 9
+ }
+}

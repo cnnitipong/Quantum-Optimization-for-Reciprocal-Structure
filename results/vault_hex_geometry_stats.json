@@ -1,0 +1,78 @@
+{
+  "rf_vault_hex2": {
+    "gate1_nonsingular": {
+      "0.15": {
+        "ok": true,
+        "cond": 960915.4396037442,
+        "n_nodes": 752,
+        "n_elems": 930
+      },
+      "0.25": {
+        "ok": true,
+        "cond": 821507.5072320133,
+        "n_nodes": 752,
+        "n_elems": 930
+      },
+      "0.4": {
+        "ok": true,
+        "cond": 1552073.3609890994,
+        "n_nodes": 752,
+        "n_elems": 930
+      }
+    },
+    "gate2_zero_interior_supports": {
+      "ok": true,
+      "n_supports": 16,
+      "n_interior_supports": 0
+    },
+    "gate3_bearings": {
+      "ok": true,
+      "n_interior": 164,
+      "n_pinned_boundary": 16,
+      "n_gable_boundary": 16,
+      "n_gable_rib": 14,
+      "n_links": 360,
+      "malformed": [],
+      "mid_air_nodes": []
+    },
+    "gate4_deflection": {
+      "ok": true,
+      "dmax": 0.02086918582292715,
+      "lo": 0.007,
+      "hi": 0.14,
+      "span": 14.0,
+      "mass": 7930.63221856407
+    },
+    "dof_and_solve_time": {
+      "ndof_total": 4512,
+      "n_fixed_dof": 64,
+      "ndof_restrained": 4448
+    },
+    "stats_mid_section": {
+      "kind": "rf_vault_hex2",
+      "n_nodes": 752,
+      "n_fe_elements": 930,
+      "n_beam_elements": 570,
+      "n_link_elements": 360,
+      "n_physical_members": 210,
+      "n_faces": 120,
+      "n_supports": 16,
+      "n_groups": 12,
+      "span_m": 14.0,
+      "length_m": 16.165807537309522,
+      "rise_span_ratio": 0.18571428571428572,
+      "mass_kg_mid_section": 7930.63221856407
+    },
+    "construction_params": {
+      "n_rows": 8,
+      "n_cols": 8,
+      "span_transverse": 14.0,
+      "rise": 2.6,
+      "n_section_groups": 12,
+      "n_lambda_bands": 6,
+      "lam_ref": 0.25,
+      "mid_section_D_mm": 139.7
+    },
+    "v1_v6_verification_battery": "see results_v2/vault_hex2_verification.json (this file only mirrors the qa_vault_hex.py gate-matrix schema for continuity)"
+  }
+}

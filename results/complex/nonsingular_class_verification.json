@@ -1,0 +1,183 @@
+{
+  "rf_dome_complex": [
+    {
+      "lam_list": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "sec_idx": 0,
+      "cond": 7565933.709616605,
+      "ok": true
+    },
+    {
+      "lam_list": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "sec_idx": 7,
+      "cond": 422923.80372807116,
+      "ok": true
+    },
+    {
+      "lam_list": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "sec_idx": 0,
+      "cond": 1161176335.9206867,
+      "ok": true
+    },
+    {
+      "lam_list": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "sec_idx": 7,
+      "cond": 4192411865.3946724,
+      "ok": true
+    },
+    {
+      "lam_list": [
+        0.05,
+        0.5,
+        0.05,
+        0.5,
+        0.05
+      ],
+      "sec_idx": 0,
+      "cond": 1865789233.8702016,
+      "ok": true
+    }
+  ],
+  "davinci_bridge_complex": [
+    {
+      "lam": 0.05,
+      "sec_idx": 0,
+      "cond": 22518493853.414474,
+      "ok": true
+    },
+    {
+      "lam": 0.05,
+      "sec_idx": 7,
+      "cond": 153797281.10078767,
+      "ok": true
+    },
+    {
+      "lam": 0.5,
+      "sec_idx": 0,
+      "cond": 53925185.80835388,
+      "ok": true
+    },
+    {
+      "lam": 0.5,
+      "sec_idx": 7,
+      "cond": 1192514.6395421484,
+      "ok": true
+    }
+  ],
+  "davinci_bridge2": [
+    {
+      "lam": 0.05,
+      "sec_idx": 0,
+      "cond": 442291427271.8693,
+      "ok": true
+    },
+    {
+      "lam": 0.05,
+      "sec_idx": 3,
+      "cond": 45213939394.56926,
+      "ok": true
+    },
+    {
+      "lam": 0.05,
+      "sec_idx": 7,
+      "cond": 2997566636.692496,
+      "ok": true
+    },
+    {
+      "lam": 0.15,
+      "sec_idx": 0,
+      "cond": 16461098835.150383,
+      "ok": true
+    },
+    {
+      "lam": 0.15,
+      "sec_idx": 3,
+      "cond": 1732506266.240039,
+      "ok": true
+    },
+    {
+      "lam": 0.15,
+      "sec_idx": 7,
+      "cond": 166522019.42848387,
+      "ok": true
+    },
+    {
+      "lam": 0.25,
+      "sec_idx": 0,
+      "cond": 3578654680.100371,
+      "ok": true
+    },
+    {
+      "lam": 0.25,
+      "sec_idx": 3,
+      "cond": 387483386.92049485,
+      "ok": true
+    },
+    {
+      "lam": 0.25,
+      "sec_idx": 7,
+      "cond": 48147881.48458028,
+      "ok": true
+    },
+    {
+      "lam": 0.4,
+      "sec_idx": 0,
+      "cond": 885095621.146567,
+      "ok": true
+    },
+    {
+      "lam": 0.4,
+      "sec_idx": 3,
+      "cond": 99904898.21236843,
+      "ok": true
+    },
+    {
+      "lam": 0.4,
+      "sec_idx": 7,
+      "cond": 16427138.757125571,
+      "ok": true
+    },
+    {
+      "lam": 0.5,
+      "sec_idx": 0,
+      "cond": 458173753.9711116,
+      "ok": true
+    },
+    {
+      "lam": 0.5,
+      "sec_idx": 3,
+      "cond": 53156062.166479975,
+      "ok": true
+    },
+    {
+      "lam": 0.5,
+      "sec_idx": 7,
+      "cond": 10144301.046110459,
+      "ok": true
+    }
+  ],
+  "davinci_bridge2_note": "Redesigned bridge (n_bays=24, span=20, width=6): worst-case cond=4.423e+11 across lam in [0.05,0.5] x sections {0,3,7}, ~2.3e+02x below the 1e14 raise threshold -- check_cond=False safe for the CS6 campaign inner loop, same convention as davinci_bridge_complex before it."
+}

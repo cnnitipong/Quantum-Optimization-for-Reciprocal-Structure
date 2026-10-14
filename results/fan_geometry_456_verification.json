@@ -1,0 +1,267 @@
+{
+  "fan4": {
+    "n_beams": 4,
+    "gate1_nonsingular_all_lambda_ok": true,
+    "gate1_per_lambda": {
+      "0.050000": {
+        "ok": true,
+        "cond": 51423.93504612159,
+        "n_nodes": 12,
+        "n_elems": 12
+      },
+      "0.114286": {
+        "ok": true,
+        "cond": 43217.03254700894,
+        "n_nodes": 12,
+        "n_elems": 12
+      },
+      "0.178571": {
+        "ok": true,
+        "cond": 40638.115183419875,
+        "n_nodes": 12,
+        "n_elems": 12
+      },
+      "0.242857": {
+        "ok": true,
+        "cond": 38043.91054987383,
+        "n_nodes": 12,
+        "n_elems": 12
+      },
+      "0.307143": {
+        "ok": true,
+        "cond": 34933.49328801983,
+        "n_nodes": 12,
+        "n_elems": 12
+      },
+      "0.371429": {
+        "ok": true,
+        "cond": 31463.66417019212,
+        "n_nodes": 12,
+        "n_elems": 12
+      },
+      "0.435714": {
+        "ok": true,
+        "cond": 29120.630263346127,
+        "n_nodes": 12,
+        "n_elems": 12
+      },
+      "0.500000": {
+        "ok": true,
+        "cond": 26527.51292157982,
+        "n_nodes": 12,
+        "n_elems": 12
+      }
+    },
+    "gate1_cond_range": [
+      26527.51292157982,
+      51423.93504612159
+    ],
+    "gate2_zero_interior_supports": {
+      "ok": true,
+      "n_supports": 4,
+      "n_interior_supports": 0
+    },
+    "gate3_closed_circuit_bearings": {
+      "ok": true,
+      "n_interior": 0,
+      "n_boundary": 4,
+      "n_links": 4,
+      "malformed": []
+    },
+    "n_nodes": 12,
+    "n_fe_elements": 12,
+    "n_beam_elements": 8,
+    "n_link_elements": 4,
+    "n_physical_members": 4,
+    "n_boundary_members": 4,
+    "n_interior_members": 0,
+    "n_supports": 4,
+    "n_dof_total": 72,
+    "n_dof_fixed": 24,
+    "n_dof_free": 48,
+    "all_gates_ok": true
+  },
+  "fan5": {
+    "n_beams": 5,
+    "gate1_nonsingular_all_lambda_ok": true,
+    "gate1_per_lambda": {
+      "0.050000": {
+        "ok": true,
+        "cond": 86601.16087553628,
+        "n_nodes": 15,
+        "n_elems": 15
+      },
+      "0.114286": {
+        "ok": true,
+        "cond": 67185.40531345541,
+        "n_nodes": 15,
+        "n_elems": 15
+      },
+      "0.178571": {
+        "ok": true,
+        "cond": 59663.24417994883,
+        "n_nodes": 15,
+        "n_elems": 15
+      },
+      "0.242857": {
+        "ok": true,
+        "cond": 53855.326776719114,
+        "n_nodes": 15,
+        "n_elems": 15
+      },
+      "0.307143": {
+        "ok": true,
+        "cond": 48446.169146075896,
+        "n_nodes": 15,
+        "n_elems": 15
+      },
+      "0.371429": {
+        "ok": true,
+        "cond": 43395.8242539781,
+        "n_nodes": 15,
+        "n_elems": 15
+      },
+      "0.435714": {
+        "ok": true,
+        "cond": 38831.34861483811,
+        "n_nodes": 15,
+        "n_elems": 15
+      },
+      "0.500000": {
+        "ok": true,
+        "cond": 34903.62293675806,
+        "n_nodes": 15,
+        "n_elems": 15
+      }
+    },
+    "gate1_cond_range": [
+      34903.62293675806,
+      86601.16087553628
+    ],
+    "gate2_zero_interior_supports": {
+      "ok": true,
+      "n_supports": 5,
+      "n_interior_supports": 0
+    },
+    "gate3_closed_circuit_bearings": {
+      "ok": true,
+      "n_interior": 0,
+      "n_boundary": 5,
+      "n_links": 5,
+      "malformed": []
+    },
+    "n_nodes": 15,
+    "n_fe_elements": 15,
+    "n_beam_elements": 10,
+    "n_link_elements": 5,
+    "n_physical_members": 5,
+    "n_boundary_members": 5,
+    "n_interior_members": 0,
+    "n_supports": 5,
+    "n_dof_total": 90,
+    "n_dof_fixed": 30,
+    "n_dof_free": 60,
+    "all_gates_ok": true
+  },
+  "fan6": {
+    "n_beams": 6,
+    "gate1_nonsingular_all_lambda_ok": true,
+    "gate1_per_lambda": {
+      "0.050000": {
+        "ok": true,
+        "cond": 100157.8576627215,
+        "n_nodes": 18,
+        "n_elems": 18
+      },
+      "0.114286": {
+        "ok": true,
+        "cond": 76037.78674572737,
+        "n_nodes": 18,
+        "n_elems": 18
+      },
+      "0.178571": {
+        "ok": true,
+        "cond": 65724.26399713254,
+        "n_nodes": 18,
+        "n_elems": 18
+      },
+      "0.242857": {
+        "ok": true,
+        "cond": 58706.32736525338,
+        "n_nodes": 18,
+        "n_elems": 18
+      },
+      "0.307143": {
+        "ok": true,
+        "cond": 52381.57814027025,
+        "n_nodes": 18,
+        "n_elems": 18
+      },
+      "0.371429": {
+        "ok": true,
+        "cond": 46502.15990738953,
+        "n_nodes": 18,
+        "n_elems": 18
+      },
+      "0.435714": {
+        "ok": true,
+        "cond": 41251.207314400286,
+        "n_nodes": 18,
+        "n_elems": 18
+      },
+      "0.500000": {
+        "ok": true,
+        "cond": 36807.91034478003,
+        "n_nodes": 18,
+        "n_elems": 18
+      }
+    },
+    "gate1_cond_range": [
+      36807.91034478003,
+      100157.8576627215
+    ],
+    "gate2_zero_interior_supports": {
+      "ok": true,
+      "n_supports": 6,
+      "n_interior_supports": 0
+    },
+    "gate3_closed_circuit_bearings": {
+      "ok": true,
+      "n_interior": 0,
+      "n_boundary": 6,
+      "n_links": 6,
+      "malformed": []
+    },
+    "n_nodes": 18,
+    "n_fe_elements": 18,
+    "n_beam_elements": 12,
+    "n_link_elements": 6,
+    "n_physical_members": 6,
+    "n_boundary_members": 6,
+    "n_interior_members": 0,
+    "n_supports": 6,
+    "n_dof_total": 108,
+    "n_dof_fixed": 36,
+    "n_dof_free": 72,
+    "all_gates_ok": true
+  },
+  "_summary": {
+    "n_values_checked": [
+      4,
+      5,
+      6
+    ],
+    "all_geometries_ok": true,
+    "lambda_levels_checked": [
+      0.05,
+      0.1142857142857143,
+      0.1785714285714286,
+      0.24285714285714288,
+      0.30714285714285716,
+      0.37142857142857144,
+      0.4357142857142858,
+      0.5
+    ],
+    "note": "fan_unit's underlying primitive, reciprocal_geom.pinwheel_fan, was already fully n-general (n = len(support_pts); assert n >= 3; all indexing modular via (k+1) % n) -- no code change to reciprocal_geom_v2.py was required for n=5,6; this file only verifies that fact against the same gate machinery used for the rest of the geometry-v2 suite."
+  }
+}

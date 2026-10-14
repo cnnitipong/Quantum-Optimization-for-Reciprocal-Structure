@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below."
+title: "Quantum Optimization for Reciprocal Structures"
+authors:
+  - family-names: Praphaphankul
+    given-names: Nitipong
+    affiliation: "Department of Architecture, Faculty of Architecture, Chulalongkorn University"
+repository-code: "https://github.com/cnnitipong/Quantum-Optimization-for-Reciprocal-Structure"
+license: MIT
+version: "1.0.0"
+date-released: "2026-10-14"
+preferred-citation:
+  type: article
+  title: "Annealing-ready QUBO formulations for the discrete design of reciprocal frame structures"
+  authors:
+    - family-names: Praphaphankul
+      given-names: Nitipong
+  journal: "Engineering Structures"
+  year: 2026
+  notes: "Submitted"

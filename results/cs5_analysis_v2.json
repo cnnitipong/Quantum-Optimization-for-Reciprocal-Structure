@@ -1,0 +1,58 @@
+{
+  "n_seeds": 5,
+  "n_evals_per_seed_per_method": 264,
+  "normalization": "min-max over union of all SA-QUBO + NSGA-II points, all seeds",
+  "compliance_range": [
+    219.7712628102051,
+    29663.462865265436
+  ],
+  "mass_range": [
+    1587.4054860106812,
+    12385.169264279191
+  ],
+  "ref_point": [
+    1.2,
+    1.2
+  ],
+  "sa_hv_mean": 1.3655718450750618,
+  "sa_hv_std": 0.005970238215183241,
+  "nsga_hv_mean": 1.3297451369377709,
+  "nsga_hv_std": 0.006513683879764165,
+  "sa_front_size_mean": 65.2,
+  "nsga_front_size_mean": 45.6,
+  "mann_whitney_p": 0.0121857803553449,
+  "cliffs_delta": 1.0,
+  "per_seed": {
+    "0": {
+      "sa_hv": 1.3714695216396955,
+      "nsga_hv": 1.3326096611128226,
+      "sa_front_size": 65,
+      "nsga_front_size": 41
+    },
+    "1": {
+      "sa_hv": 1.3569626319129477,
+      "nsga_hv": 1.3209830214754485,
+      "sa_front_size": 66,
+      "nsga_front_size": 48
+    },
+    "2": {
+      "sa_hv": 1.3679159677139556,
+      "nsga_hv": 1.3400849472562166,
+      "sa_front_size": 65,
+      "nsga_front_size": 48
+    },
+    "3": {
+      "sa_hv": 1.3601095280487483,
+      "nsga_hv": 1.329802391958541,
+      "sa_front_size": 67,
+      "nsga_front_size": 48
+    },
+    "4": {
+      "sa_hv": 1.3714015760599612,
+      "nsga_hv": 1.3252456628858251,
+      "sa_front_size": 63,
+      "nsga_front_size": 43
+    }
+  },
+  "note_trim": "N_SEEDS reduced from spec's 10 to 5 due to compute-time constraints in this sandboxed environment (square_nexorade FE solve ~0.34s/eval x 264 evals x 2 methods x 10 seeds = ~30 CPU-min was infeasible at the 45s-per-call granularity available); documented explicitly here and in summary_v2.md, following the R9 precedent of the v1 revision."
+}

@@ -1,0 +1,117 @@
+{
+  "instance": "fan_unit(3, R=3.0, lam=0.25, single_group=False) [v2, unchanged rotor]: 3 groups x 8 CHS sections = 512 designs",
+  "n_designs_total": 512,
+  "mass_target": 446.13792782630895,
+  "mass_max": 743.5632130438482,
+  "n_feasible_designs": 33,
+  "true_constrained_optimum": {
+    "idx": [
+      6,
+      5,
+      6
+    ],
+    "compliance": 8.399176935772664,
+    "mass": 430.6446802351245,
+    "mass_rel_err": 0.03472748364316676,
+    "feasible": true
+  },
+  "true_unconstrained_optimum": {
+    "idx": [
+      7,
+      7,
+      7
+    ],
+    "compliance": 3.14905139615286,
+    "mass": 743.5632130438482,
+    "mass_rel_err": 0.6666666666666666,
+    "feasible": false
+  },
+  "w_mass": 20.0,
+  "n_iters": 50,
+  "n_seeds": 10,
+  "seed_results": [
+    {
+      "seed": 0,
+      "time_s": 1.2801198959350586,
+      "best_feasible_compliance": 8.399176935772664,
+      "optimality_gap_pct": 0.0,
+      "success": true,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 1,
+      "time_s": 1.342468023300171,
+      "best_feasible_compliance": 8.399176935772664,
+      "optimality_gap_pct": 0.0,
+      "success": true,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 2,
+      "time_s": 1.2833101749420166,
+      "best_feasible_compliance": 9.212365888613483,
+      "optimality_gap_pct": 9.681769524075543,
+      "success": false,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 3,
+      "time_s": 1.300166368484497,
+      "best_feasible_compliance": 8.399176935772664,
+      "optimality_gap_pct": 0.0,
+      "success": true,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 4,
+      "time_s": 1.3573801517486572,
+      "best_feasible_compliance": 8.399176935772664,
+      "optimality_gap_pct": 0.0,
+      "success": true,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 5,
+      "time_s": 1.2679426670074463,
+      "best_feasible_compliance": 9.212365888613483,
+      "optimality_gap_pct": 9.681769524075543,
+      "success": false,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 6,
+      "time_s": 1.2904081344604492,
+      "best_feasible_compliance": 9.212365888613483,
+      "optimality_gap_pct": 9.681769524075543,
+      "success": false,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 7,
+      "time_s": 1.2764017581939697,
+      "best_feasible_compliance": 9.212365888613483,
+      "optimality_gap_pct": 9.681769524075543,
+      "success": false,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 8,
+      "time_s": 1.2872495651245117,
+      "best_feasible_compliance": 9.212365888613483,
+      "optimality_gap_pct": 9.681769524075543,
+      "success": false,
+      "found_any_feasible": true
+    },
+    {
+      "seed": 9,
+      "time_s": 1.3005077838897705,
+      "best_feasible_compliance": 8.399176935772664,
+      "optimality_gap_pct": 0.0,
+      "success": true,
+      "found_any_feasible": true
+    }
+  ],
+  "success_rate": 0.5,
+  "mean_optimality_gap_pct": 4.8408847620377715,
+  "std_optimality_gap_pct": 4.8408847620377715
+}

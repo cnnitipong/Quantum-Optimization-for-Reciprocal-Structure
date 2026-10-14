@@ -1,0 +1,752 @@
+{
+  "fy_Pa": 355000000.0,
+  "K_buckling": 1.0,
+  "note_buckling": "Euler pinned-pinned (K=1) is CONSERVATIVE relative to the semi-rigid frame connections actually modelled.",
+  "note_links": "Eccentric-bearing LINK elements are EXCLUDED from stress/buckling checks (not real structural members) but their axial-force sign is reported separately as the link-tension fraction.",
+  "note_serviceability": "d_max is checked against span/250, a common practical deflection-limit convention, DISTINCT from the geometry validation gate's span/2000..span/100 plausibility window.",
+  "note_reproducibility": "dome2_geo_best recovered by re-deriving its idx from the stored FMQA y_data/idx_data and re-solving; dome2_sizing_best recovered by re-reading the best-iteration idx from the stored per-iteration idx_history/compliance_history and re-solving -- both assert the recomputed compliance matches the stored value (reproducibility_match=True).",
+  "note_scope": "Supersedes, for the DOME typology, posthoc.json's cs4_complex entry and vault_posthoc.json's dome_sizing_best entry (both built on the OLD rf_dome_complex frame, whose supports did NOT lie on a circle). The davinci_bridge_complex (cs6_complex) rows are unaffected and are not re-checked here.",
+  "note_axial_sign": "Each design is reported under TWO compression conventions: `legacy_convention` reproduces vault_hex_posthoc.py/cs_complex_uls.py byte-for-byte (is_compression = sign(Ni)==sign(axial_sign) with axial_sign measured on a KNOWN-TENSION bar, so that flag is actually TRUE FOR TENSION -- an inverted test inherited by every pre-existing post-hoc file), and `corrected_convention` uses the verified rule Ni>0 => COMPRESSION. Stress utilisation, compliance, mass and d_max are identical in both blocks; only the compression/tension split, the buckling table and the link-tension fraction differ.",
+  "axial_sign_convention_test_Ni": -999.9999999999999,
+  "dome2_geo_best": {
+    "legacy_convention": {
+      "n_beam_members": 518,
+      "n_link_excluded": 336,
+      "n_compression_members": 56,
+      "n_tension_members": 462,
+      "stress_utilization": {
+        "n": 518,
+        "mean": 0.06714713388653416,
+        "median": 0.06324054403733115,
+        "p90": 0.10509368343409957,
+        "max": 0.11599578953561263,
+        "min": 0.01656249979061569,
+        "n_exceed_1": 0
+      },
+      "buckling_utilization_compression_members": {
+        "n": 56,
+        "mean": 1.5037366945746793e-05,
+        "median": 7.630756022550771e-06,
+        "p90": 6.609744213346709e-05,
+        "max": 6.609744227255754e-05,
+        "min": 4.991585803114805e-07,
+        "n_exceed_1": 0
+      },
+      "worst_5_stress": [
+        {
+          "elem_idx": 654,
+          "group": 7,
+          "L": 0.3218047073987964,
+          "D_mm": 244.5,
+          "N": 57019.49069586494,
+          "My": 8033.624907699965,
+          "Mz": 5842.808604067842,
+          "util_stress": 0.11599578953561263,
+          "is_compression": false,
+          "util_buckling": 0.0
+        },
+        {
+          "elem_idx": 606,
+          "group": 7,
+          "L": 0.3218047073987963,
+          "D_mm": 244.5,
+          "N": 57019.49068816751,
+          "My": 8033.624902038085,
+          "Mz": 5842.808603024079,
+          "util_stress": 0.11599578948715136,
+          "is_compression": false,
+          "util_buckling": 0.0
+        },
+        {
+          "elem_idx": 678,
+          "group": 7,
+          "L": 0.3218047073987973,
+          "D_mm": 244.5,
+          "N": 57019.49065343516,
+          "My": 8033.624902079761,
+          "Mz": 5842.808599835877,
+          "util_stress": 0.11599578945251222,
+          "is_compression": false,
+          "util_buckling": 0.0
+        },
+        {
+          "elem_idx": 702,
+          "group": 7,
+          "L": 0.32180470739879713,
+          "D_mm": 244.5,
+          "N": 57019.4906522784,
+          "My": 8033.624891675014,
+          "Mz": 5842.808602002527,
+          "util_stress": 0.11599578939614957,
+          "is_compression": false,
+          "util_buckling": 0.0
+        },
+        {
+          "elem_idx": 558,
+          "group": 7,
+          "L": 0.32180470739879663,
+          "D_mm": 244.5,
+          "N": 57019.49066460744,
+          "My": 8033.624886698017,
+          "Mz": 5842.8086031828425,
+          "util_stress": 0.11599578937509182,
+          "is_compression": false,
+          "util_buckling": 0.0
+        }
+      ],
+      "worst_5_buckling": [
+        {
+          "elem_idx": 615,
+          "group": 7,
+          "L": 0.3304227344234254,
+          "D_mm": 244.5,
+          "N": -63656.29072199622,
+          "My": 4319.854436383002,
+          "Mz": 4823.581078325178,
+          "util_stress": 0.08640579466835005,
+          "is_compression": true,
+          "util_buckling": 6.609744227255754e-05
+        },
+        {
+          "elem_idx": 663,
+          "group": 7,
+          "L": 0.3304227344234254,
+          "D_mm": 244.5,
+          "N": -63656.29071558689,
+          "My": 4319.854441045591,
+          "Mz": 4823.581080524501,
+          "util_stress": 0.08640579471247813,
+          "is_compression": true,
+          "util_buckling": 6.609744226590242e-05
+        },
+        {
+          "elem_idx": 687,
+          "group": 7,
+          "L": 0.3304227344234253,
+          "D_mm": 244.5,
+          "N": -63656.29069477934,
+          "My": 4319.854432858222,
+          "Mz": 4823.581064860165,
+          "util_stress": 0.08640579454261621,
+          "is_compression": true,
+          "util_buckling": 6.609744224429688e-05
+        },
+        {
+          "elem_idx": 639,
+          "group": 7,
+          "L": 0.33042273442342596,
+          "D_mm": 244.5,
+          "N": -63656.29062623074,
+          "My": 4319.854425739052,
+          "Mz": 4823.581053461117,
+          "util_stress": 0.08640579439070357,
+          "is_compression": true,
+          "util_buckling": 6.609744217311978e-05
+        },
+        {
+          "elem_idx": 567,
+          "group": 7,
+          "L": 0.33042273442342557,
+          "D_mm": 244.5,
+          "N": -63656.29061583633,
+          "My": 4319.85442951711,
+          "Mz": 4823.5810501423575,
+          "util_stress": 0.08640579438984682,
+          "is_compression": true,
+          "util_buckling": 6.60974421623266e-05
+        }
+      ],
+      "compliance": 1378.5492642100926,
+      "mass": 26962.120646082916,
+      "d_max": 0.0018946035823092983,
+      "span": 18.5,
+      "span_over_250": 0.074,
+      "d_max_over_span_over_250": 0.025602751112287818,
+      "serviceability_ok": true,
+      "link_tension_fraction": 0.08333333333333333,
+      "n_link_tension": 28,
+      "n_link_total": 336,
+      "seed": "1",
+      "reproducibility_match": true,
+      "recovery_meta": {
+        "stored_best": 1378.5492646598748,
+        "best_y_in_ydata": 1378.5492646598748,
+        "recomputed": 1378.5492642100926,
+        "lam_per_ring": [
+          0.1142857142857143,
+          0.4357142857142858,
+          0.4357142857142858,
+          0.4357142857142858
+        ],
+        "section_idx": 7
+      }
+    },
+    "corrected_convention": {
+      "n_beam_members": 518,
+      "n_link_excluded": 336,
+      "n_compression_members": 462,
+      "n_tension_members": 56,
+      "stress_utilization": {
+        "n": 518,
+        "mean": 0.06714713388653416,
+        "median": 0.06324054403733115,
+        "p90": 0.10509368343409957,
+        "max": 0.11599578953561263,
+        "min": 0.01656249979061569,
+        "n_exceed_1": 0
+      },
+      "buckling_utilization_compression_members": {
+        "n": 462,
+        "mean": 0.00039799300921901885,
+        "median": 0.0003905163563774224,
+        "p90": 0.0007900354541446482,
+        "max": 0.000999124984031996,
+        "min": 1.3123562858229538e-08,
+        "n_exceed_1": 0
+      },
+      "worst_5_stress": [
+        {
+          "elem_idx": 654,
+          "group": 7,
+          "L": 0.3218047073987964,
+          "D_mm": 244.5,
+          "N": 57019.49069586494,
+          "My": 8033.624907699965,
+          "Mz": 5842.808604067842,
+          "util_stress": 0.11599578953561263,
+          "is_compression": true,
+          "util_buckling": 5.61579962070774e-05
+        },
+        {
+          "elem_idx": 606,
+          "group": 7,
+          "L": 0.3218047073987963,
+          "D_mm": 244.5,
+          "N": 57019.49068816751,
+          "My": 8033.624902038085,
+          "Mz": 5842.808603024079,
+          "util_stress": 0.11599578948715136,
+          "is_compression": true,
+          "util_buckling": 5.615799619949623e-05
+        },
+        {
+          "elem_idx": 678,
+          "group": 7,
+          "L": 0.3218047073987973,
+          "D_mm": 244.5,
+          "N": 57019.49065343516,
+          "My": 8033.624902079761,
+          "Mz": 5842.808599835877,
+          "util_stress": 0.11599578945251222,
+          "is_compression": true,
+          "util_buckling": 5.6157996165288995e-05
+        },
+        {
+          "elem_idx": 702,
+          "group": 7,
+          "L": 0.32180470739879713,
+          "D_mm": 244.5,
+          "N": 57019.4906522784,
+          "My": 8033.624891675014,
+          "Mz": 5842.808602002527,
+          "util_stress": 0.11599578939614957,
+          "is_compression": true,
+          "util_buckling": 5.615799616414965e-05
+        },
+        {
+          "elem_idx": 558,
+          "group": 7,
+          "L": 0.32180470739879663,
+          "D_mm": 244.5,
+          "N": 57019.49066460744,
+          "My": 8033.624886698017,
+          "Mz": 5842.8086031828425,
+          "util_stress": 0.11599578937509182,
+          "is_compression": true,
+          "util_buckling": 5.615799617629224e-05
+        }
+      ],
+      "worst_5_buckling": [
+        {
+          "elem_idx": 625,
+          "group": 11,
+          "L": 1.5768376245358833,
+          "D_mm": 244.5,
+          "N": 42251.52484658538,
+          "My": 870.266331698337,
+          "Mz": 2045.766399026358,
+          "util_stress": 0.03594961898096811,
+          "is_compression": true,
+          "util_buckling": 0.000999124984031996
+        },
+        {
+          "elem_idx": 577,
+          "group": 11,
+          "L": 1.5768376245358824,
+          "D_mm": 244.5,
+          "N": 42251.52483586671,
+          "My": 870.2663313949287,
+          "Mz": 2045.7664045303559,
+          "util_stress": 0.035949619012171356,
+          "is_compression": true,
+          "util_buckling": 0.0009991249837785292
+        },
+        {
+          "elem_idx": 601,
+          "group": 11,
+          "L": 1.5768376245358824,
+          "D_mm": 244.5,
+          "N": 42251.524833289106,
+          "My": 870.2663337700302,
+          "Mz": 2045.7664057163977,
+          "util_stress": 0.03594961903535887,
+          "is_compression": true,
+          "util_buckling": 0.0009991249837175765
+        },
+        {
+          "elem_idx": 673,
+          "group": 11,
+          "L": 1.5768376245358815,
+          "D_mm": 244.5,
+          "N": 42251.52482047292,
+          "My": 870.26633384121,
+          "Mz": 2045.7663974962686,
+          "util_stress": 0.035949618975143184,
+          "is_compression": true,
+          "util_buckling": 0.00099912498341451
+        },
+        {
+          "elem_idx": 553,
+          "group": 11,
+          "L": 1.5768376245358828,
+          "D_mm": 244.5,
+          "N": 42251.52481793,
+          "My": 870.2663326020995,
+          "Mz": 2045.7664023580946,
+          "util_stress": 0.03594961899876192,
+          "is_compression": true,
+          "util_buckling": 0.0009991249833543796
+        }
+      ],
+      "compliance": 1378.5492642100926,
+      "mass": 26962.120646082916,
+      "d_max": 0.0018946035823092983,
+      "span": 18.5,
+      "span_over_250": 0.074,
+      "d_max_over_span_over_250": 0.025602751112287818,
+      "serviceability_ok": true,
+      "link_tension_fraction": 0.08333333333333333,
+      "n_link_tension": 28,
+      "n_link_total": 336,
+      "seed": "1",
+      "reproducibility_match": true,
+      "recovery_meta": {
+        "stored_best": 1378.5492646598748,
+        "best_y_in_ydata": 1378.5492646598748,
+        "recomputed": 1378.5492642100926,
+        "lam_per_ring": [
+          0.1142857142857143,
+          0.4357142857142858,
+          0.4357142857142858,
+          0.4357142857142858
+        ],
+        "section_idx": 7
+      }
+    },
+    "seed": "1",
+    "reproducibility_match": true,
+    "recovery_meta": {
+      "stored_best": 1378.5492646598748,
+      "best_y_in_ydata": 1378.5492646598748,
+      "recomputed": 1378.5492642100926,
+      "lam_per_ring": [
+        0.1142857142857143,
+        0.4357142857142858,
+        0.4357142857142858,
+        0.4357142857142858
+      ],
+      "section_idx": 7
+    }
+  },
+  "dome2_sizing_best": {
+    "legacy_convention": {
+      "n_beam_members": 518,
+      "n_link_excluded": 336,
+      "n_compression_members": 63,
+      "n_tension_members": 455,
+      "stress_utilization": {
+        "n": 518,
+        "mean": 0.09742586023172838,
+        "median": 0.08628256682295576,
+        "p90": 0.15589598366226465,
+        "max": 0.7018522962049286,
+        "min": 0.017307895190014088,
+        "n_exceed_1": 0
+      },
+      "buckling_utilization_compression_members": {
+        "n": 63,
+        "mean": 1.8646376586333868e-05,
+        "median": 2.718953510962385e-06,
+        "p90": 6.0510709314509264e-05,
+        "max": 7.142873375526253e-05,
+        "min": 7.565768048431677e-07,
+        "n_exceed_1": 0
+      },
+      "worst_5_stress": [
+        {
+          "elem_idx": 430,
+          "group": 0,
+          "L": 0.2957912124813392,
+          "D_mm": 76.1,
+          "N": 47415.71519646235,
+          "My": 1486.0815915053415,
+          "Mz": 1568.7308193522133,
+          "util_stress": 0.7018522962049286,
+          "is_compression": false,
+          "util_buckling": 0.0
+        },
+        {
+          "elem_idx": 393,
+          "group": 0,
+          "L": 0.9515262763143582,
+          "D_mm": 76.1,
+          "N": 79010.64609397763,
+          "My": 1272.429720820082,
+          "Mz": 777.7281942617088,
+          "util_stress": 0.6177419232753383,
+          "is_compression": false,
+          "util_buckling": 0.0
+        },
+        {
+          "elem_idx": 424,
+          "group": 0,
+          "L": 0.29579121248133927,
+          "D_mm": 76.1,
+          "N": 35669.653322702856,
+          "My": 808.4708157691966,
+          "Mz": 969.130900986466,
+          "util_stress": 0.433525240228894,
+          "is_compression": false,
+          "util_buckling": 0.0
+        },
+        {
+          "elem_idx": 418,
+          "group": 0,
+          "L": 0.29579121248133916,
+          "D_mm": 76.1,
+          "N": 31098.323352107138,
+          "My": 887.8371014885751,
+          "Mz": 884.1093748537513,
+          "util_stress": 0.4182863846793942,
+          "is_compression": false,
+          "util_buckling": 0.0
+        },
+        {
+          "elem_idx": 412,
+          "group": 0,
+          "L": 0.29579121248133927,
+          "D_mm": 76.1,
+          "N": 28283.675611377694,
+          "My": 845.0838583876841,
+          "Mz": 835.8202994802463,
+          "util_stress": 0.39301175205463196,
+          "is_compression": false,
+          "util_buckling": 0.0
+        }
+      ],
+      "worst_5_buckling": [
+        {
+          "elem_idx": 543,
+          "group": 7,
+          "L": 0.33042273442342573,
+          "D_mm": 244.5,
+          "N": -68790.68365580059,
+          "My": 5704.270290666178,
+          "Mz": 4439.975492774904,
+          "util_stress": 0.09516252937262672,
+          "is_compression": true,
+          "util_buckling": 7.142873375526253e-05
+        },
+        {
+          "elem_idx": 639,
+          "group": 7,
+          "L": 0.33042273442342596,
+          "D_mm": 244.5,
+          "N": -65332.399933616834,
+          "My": 5557.480152837773,
+          "Mz": 4676.347217161603,
+          "util_stress": 0.0944482817930106,
+          "is_compression": true,
+          "util_buckling": 6.783782850306293e-05
+        },
+        {
+          "elem_idx": 615,
+          "group": 7,
+          "L": 0.3304227344234254,
+          "D_mm": 244.5,
+          "N": -65320.038938550424,
+          "My": 5651.6735521460605,
+          "Mz": 4664.777576099079,
+          "util_stress": 0.09500440699976608,
+          "is_compression": true,
+          "util_buckling": 6.782499347688436e-05
+        },
+        {
+          "elem_idx": 591,
+          "group": 7,
+          "L": 0.3304227344234257,
+          "D_mm": 244.5,
+          "N": -64780.017260056164,
+          "My": 5528.113312370062,
+          "Mz": 4730.838327357681,
+          "util_stress": 0.0944076136214774,
+          "is_compression": true,
+          "util_buckling": 6.726426253709269e-05
+        },
+        {
+          "elem_idx": 663,
+          "group": 7,
+          "L": 0.3304227344234254,
+          "D_mm": 244.5,
+          "N": -64229.143930871855,
+          "My": 5334.708661582054,
+          "Mz": 4735.0611987207685,
+          "util_stress": 0.09291280907310442,
+          "is_compression": true,
+          "util_buckling": 6.669226379726229e-05
+        }
+      ],
+      "compliance": 1888.6154186374392,
+      "mass": 21892.03330434313,
+      "d_max": 0.0028522310835290532,
+      "span": 18.5,
+      "span_over_250": 0.074,
+      "d_max_over_span_over_250": 0.03854366329093315,
+      "serviceability_ok": true,
+      "link_tension_fraction": 0.1488095238095238,
+      "n_link_tension": 50,
+      "n_link_total": 336,
+      "seed": 2,
+      "reproducibility_match": true,
+      "recovery_meta": {
+        "stored_best": 1888.615418426049,
+        "recomputed": 1888.6154186374392,
+        "best_idx": [
+          1,
+          5,
+          7,
+          7,
+          7,
+          6,
+          6,
+          7,
+          7,
+          6,
+          7,
+          5
+        ],
+        "iter": 22
+      }
+    },
+    "corrected_convention": {
+      "n_beam_members": 518,
+      "n_link_excluded": 336,
+      "n_compression_members": 455,
+      "n_tension_members": 63,
+      "stress_utilization": {
+        "n": 518,
+        "mean": 0.09742586023172838,
+        "median": 0.08628256682295576,
+        "p90": 0.15589598366226465,
+        "max": 0.7018522962049286,
+        "min": 0.017307895190014088,
+        "n_exceed_1": 0
+      },
+      "buckling_utilization_compression_members": {
+        "n": 455,
+        "mean": 0.0009292614692769857,
+        "median": 0.0006370379787906251,
+        "p90": 0.0016229379407114767,
+        "max": 0.058445062431447335,
+        "min": 5.635552595649261e-08,
+        "n_exceed_1": 0
+      },
+      "worst_5_stress": [
+        {
+          "elem_idx": 430,
+          "group": 0,
+          "L": 0.2957912124813392,
+          "D_mm": 76.1,
+          "N": 47415.71519646235,
+          "My": 1486.0815915053415,
+          "Mz": 1568.7308193522133,
+          "util_stress": 0.7018522962049286,
+          "is_compression": true,
+          "util_buckling": 0.0033893270912027655
+        },
+        {
+          "elem_idx": 393,
+          "group": 0,
+          "L": 0.9515262763143582,
+          "D_mm": 76.1,
+          "N": 79010.64609397763,
+          "My": 1272.429720820082,
+          "Mz": 777.7281942617088,
+          "util_stress": 0.6177419232753383,
+          "is_compression": true,
+          "util_buckling": 0.058445062431447335
+        },
+        {
+          "elem_idx": 424,
+          "group": 0,
+          "L": 0.29579121248133927,
+          "D_mm": 76.1,
+          "N": 35669.653322702856,
+          "My": 808.4708157691966,
+          "Mz": 969.130900986466,
+          "util_stress": 0.433525240228894,
+          "is_compression": true,
+          "util_buckling": 0.0025497057639967346
+        },
+        {
+          "elem_idx": 418,
+          "group": 0,
+          "L": 0.29579121248133916,
+          "D_mm": 76.1,
+          "N": 31098.323352107138,
+          "My": 887.8371014885751,
+          "Mz": 884.1093748537513,
+          "util_stress": 0.4182863846793942,
+          "is_compression": true,
+          "util_buckling": 0.0022229421066740397
+        },
+        {
+          "elem_idx": 412,
+          "group": 0,
+          "L": 0.29579121248133927,
+          "D_mm": 76.1,
+          "N": 28283.675611377694,
+          "My": 845.0838583876841,
+          "Mz": 835.8202994802463,
+          "util_stress": 0.39301175205463196,
+          "is_compression": true,
+          "util_buckling": 0.0020217480131056982
+        }
+      ],
+      "worst_5_buckling": [
+        {
+          "elem_idx": 393,
+          "group": 0,
+          "L": 0.9515262763143582,
+          "D_mm": 76.1,
+          "N": 79010.64609397763,
+          "My": 1272.429720820082,
+          "Mz": 777.7281942617088,
+          "util_stress": 0.6177419232753383,
+          "is_compression": true,
+          "util_buckling": 0.058445062431447335
+        },
+        {
+          "elem_idx": 697,
+          "group": 11,
+          "L": 1.576837624535882,
+          "D_mm": 168.3,
+          "N": 41456.105816918796,
+          "My": 194.8266396496762,
+          "Mz": 1303.4718491306,
+          "util_stress": 0.06813977506957916,
+          "is_compression": true,
+          "util_buckling": 0.004592342664996723
+        },
+        {
+          "elem_idx": 649,
+          "group": 11,
+          "L": 1.5768376245358822,
+          "D_mm": 168.3,
+          "N": 39894.313227774954,
+          "My": 393.4584319223832,
+          "Mz": 1257.5112900628437,
+          "util_stress": 0.07014998722821181,
+          "is_compression": true,
+          "util_buckling": 0.004419333488189917
+        },
+        {
+          "elem_idx": 673,
+          "group": 11,
+          "L": 1.5768376245358815,
+          "D_mm": 168.3,
+          "N": 39637.87437762298,
+          "My": 410.3520110219387,
+          "Mz": 1279.7714542439176,
+          "util_stress": 0.07078837320544017,
+          "is_compression": true,
+          "util_buckling": 0.004390926211401389
+        },
+        {
+          "elem_idx": 577,
+          "group": 11,
+          "L": 1.5768376245358824,
+          "D_mm": 168.3,
+          "N": 39419.898939247185,
+          "My": 547.0737414565625,
+          "Mz": 1248.6767060179704,
+          "util_stress": 0.07291455355915791,
+          "is_compression": true,
+          "util_buckling": 0.004366779758524336
+        }
+      ],
+      "compliance": 1888.6154186374392,
+      "mass": 21892.03330434313,
+      "d_max": 0.0028522310835290532,
+      "span": 18.5,
+      "span_over_250": 0.074,
+      "d_max_over_span_over_250": 0.03854366329093315,
+      "serviceability_ok": true,
+      "link_tension_fraction": 0.1488095238095238,
+      "n_link_tension": 50,
+      "n_link_total": 336,
+      "seed": 2,
+      "reproducibility_match": true,
+      "recovery_meta": {
+        "stored_best": 1888.615418426049,
+        "recomputed": 1888.6154186374392,
+        "best_idx": [
+          1,
+          5,
+          7,
+          7,
+          7,
+          6,
+          6,
+          7,
+          7,
+          6,
+          7,
+          5
+        ],
+        "iter": 22
+      }
+    },
+    "seed": 2,
+    "reproducibility_match": true,
+    "recovery_meta": {
+      "stored_best": 1888.615418426049,
+      "recomputed": 1888.6154186374392,
+      "best_idx": [
+        1,
+        5,
+        7,
+        7,
+        7,
+        6,
+        6,
+        7,
+        7,
+        6,
+        7,
+        5
+      ],
+      "iter": 22
+    }
+  }
+}

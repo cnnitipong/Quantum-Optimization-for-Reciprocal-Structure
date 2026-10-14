@@ -1,0 +1,121 @@
+{
+  "rf_dome2": {
+    "counts": {
+      "n_sect": 7,
+      "n_ring": 4,
+      "span": 18.5,
+      "rise": 3.15,
+      "n_nodes": 700,
+      "n_fe_elements": 854,
+      "n_beam_elements": 518,
+      "n_link_elements": 336,
+      "n_physical_members": 182,
+      "n_faces": 112,
+      "n_supports": 28,
+      "n_groups": 12,
+      "n_ring_families": 4,
+      "rotational_symmetry_order": 7,
+      "support_circle_radius_m": 9.25,
+      "ndof_total": 4200,
+      "n_fixed_dof": 84,
+      "ndof_restrained": 4116,
+      "support_condition": "pinned (3 translational restraints per support; see reciprocal_geom.build_frame per-model override)",
+      "mass_kg_mid_section": 8446.02645524653,
+      "rise_span_ratio": 0.17027027027027025,
+      "fast_path_solve_time_s": 0.208359956741333,
+      "compliance_service": 9423.101574863435,
+      "dmax_service_m": 0.014638957355015211
+    },
+    "gates": {
+      "gate1_nonsingular": {
+        "0.15": {
+          "ok": true,
+          "cond": 453919.0805759002,
+          "lambda_min": 19620.77821767245,
+          "lambda_max": 8906245608.749529,
+          "cond_method": "SPD power/inverse iteration (lambda_max/lambda_min)",
+          "n_nodes": 700,
+          "n_elems": 854
+        },
+        "0.25": {
+          "ok": true,
+          "cond": 268000.4475983922,
+          "lambda_min": 29997.949804782045,
+          "lambda_max": 8039463974.715691,
+          "cond_method": "SPD power/inverse iteration (lambda_max/lambda_min)",
+          "n_nodes": 700,
+          "n_elems": 854
+        },
+        "0.4": {
+          "ok": true,
+          "cond": 4935785992.18448,
+          "lambda_min": 61254.474438267935,
+          "lambda_max": 302338976891025.1,
+          "cond_method": "SPD power/inverse iteration (lambda_max/lambda_min)",
+          "n_nodes": 700,
+          "n_elems": 854
+        }
+      },
+      "gate2_zero_interior_supports": {
+        "ok": true,
+        "n_supports": 28,
+        "n_interior_supports": 0
+      },
+      "gate3_bearings": {
+        "ok": true,
+        "n_interior": 154,
+        "n_boundary": 28,
+        "n_links": 336,
+        "malformed": []
+      },
+      "gate4_deflection": {
+        "ok": true,
+        "dmax": 0.014638957355031647,
+        "lo": 0.00925,
+        "hi": 0.185,
+        "span": 18.5,
+        "mass": 8446.02645524653
+      },
+      "closed_3cycle_fan_check": {
+        "n_link_elements": 336,
+        "expected_link_elements": 336,
+        "n_faces": 112,
+        "bad_bearing_pairs": 0,
+        "n_link_nodes_multi_touched": 0,
+        "ok": true,
+        "note": "Every face carries one COMPLETE closed 3-beam pinwheel rotor: the alternating beam/link circuit is verified by (1) exactly 3*n_faces link elements, (2) every link node touched by exactly one link, and (3) every link pair having beam-degree multiset {1,2} (one beam tip bearing on one interior point of the next beam)."
+      },
+      "all_gates_ok": true,
+      "circular_support_ring": {
+        "ok": true,
+        "n_supports": 28,
+        "radius_mean_m": 9.25,
+        "radius_std_m": 1.061576257419e-15,
+        "radius_min_m": 9.25,
+        "radius_max_m": 9.250000000000002,
+        "z_mean_m": -4.440892098500626e-16,
+        "z_std_m": 0.0,
+        "centroid_xy": [
+          -3.1720657846433045e-16,
+          2.9341608507950565e-16
+        ],
+        "angular_gap_mean_deg": 12.857142857142858,
+        "angular_gap_std_deg": 2.2857193792904083e-14,
+        "n_supports_expected": 28,
+        "rotational_symmetry_order": 7,
+        "support_ring_angular_symmetry_order": 28,
+        "nominal_support_circle_radius_m": 9.25
+      }
+    },
+    "construction_params": {
+      "n_sect": 7,
+      "n_ring": 4,
+      "span": 18.5,
+      "rise": 3.15,
+      "max_group_rings": 4,
+      "lam_ref": 0.25,
+      "mid_section_D_mm": 139.7
+    },
+    "v1_v6_verification_battery": "see results_v2/dome2_verification.json"
+  }
+}

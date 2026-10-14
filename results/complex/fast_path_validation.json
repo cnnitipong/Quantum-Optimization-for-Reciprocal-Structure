@@ -1,0 +1,20 @@
+{
+  "rf_dome_complex_mid": {
+    "allclose": true,
+    "compliance_diff": 0.0,
+    "compliance_checked": 5471.927892884177,
+    "compliance_fast": 5471.927892884177,
+    "t_fast_s": 0.7786909739176432,
+    "t_checked_s": 6.5184816519419355,
+    "n_timed": 3
+  },
+  "davinci_bridge_complex_mid": {
+    "allclose": true,
+    "compliance_diff": 0.0,
+    "compliance_checked": 1324.6076665353928,
+    "compliance_fast": 1324.6076665353928,
+    "t_fast_s": 0.016872501373291014,
+    "t_checked_s": 0.07410550117492676,
+    "n_timed": 5
+  }
+}

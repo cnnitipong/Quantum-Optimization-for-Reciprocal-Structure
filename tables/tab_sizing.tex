@@ -1,0 +1,54 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\caption{Cross-section sizing on five geometries at 50 FE evaluations. Stiffness-led rule: lowest compliance visited and the mass error of that design (linearised arms at $w_{\text{m}}=5$). Matched-mass rule: lowest compliance among designs within 5 percent of the mass target (linearised arms at $w_{\text{m}}=1000$; the number of seeds that reached the band is given). $p$ is the exact Mann--Whitney test against the block annealer under the matched-mass rule, Holm-adjusted within the table; $\delta$ is Cliff\textquotesingle s delta, negative when the block annealer has lower compliance. Seed counts are those of Table~\ref{tab:protocol}; the in-band column gives the seeds of the matched-mass arm.}
+\label{tab:sizing}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llccccc}
+\toprule
+Case & Method & Lowest $C$ [J] & Mass err.\ [\%] & Matched $C$ [J] & In band & $p$ (Holm), $\delta$ \\
+\midrule
+CS2 nexorade & GA, pop.\ 20 & 521 $\pm$ 100 & +10.1 & 847 $\pm$ 285 & 10/10 & 6.2e-4, $-1.00$ \\
+ & GA, pop.\ 8 & 429 $\pm$ 92 & +17.9 & 590 $\pm$ 78 & 9/10 & 0.001, $-1.00$ \\
+ & Random & 527 $\pm$ 134 & +7.7 & 717 $\pm$ 193 & 7/10 & 0.005, $-1.00$ \\
+ & Local search & 746 $\pm$ 630 & +7.7 & 624 $\pm$ 93 & 9/10 & 0.001, $-1.00$ \\
+ & Single-flip & 289 $\pm$ 17 & +31.6 & 436 $\pm$ 14 & 10/10 & 0.001, $-0.98$ \\
+ & Decode & 296 $\pm$ 33 & +29.4 & 766 $\pm$ 142 & 10/10 & 6.2e-4, $-1.00$ \\
+ & Block & 336 $\pm$ 33 & +19.9 & 406 $\pm$ 7 & 10/10 & -- \\
+\midrule
+CS3 hex.\ nexorade & GA, pop.\ 20 & 2725 $\pm$ 604 & +9.3 & 3503 $\pm$ 612 & 9/10 & 0.053, $-1.00$ \\
+ & GA, pop.\ 8 & 2539 $\pm$ 584 & +15.5 & 3395 $\pm$ 736 & 5/5 & 0.397, $-1.00$ \\
+ & Random & 2671 $\pm$ 504 & +15.4 & 4028 $\pm$ 1138 & 9/10 & 0.053, $-1.00$ \\
+ & Local search & 3983 $\pm$ 2346 & +4.2 & 3188 $\pm$ 615 & 4/5 & 0.746, $-1.00$ \\
+ & Single-flip & 1528 $\pm$ 119 & +34.8 & 2614 $\pm$ 101 & 5/5 & 0.746, $-0.92$ \\
+ & Decode & 1659 $\pm$ 208 & +31.7 & 4683 $\pm$ 1439 & 5/5 & 0.397, $-1.00$ \\
+ & Block & 1845 $\pm$ 165 & +25.8 & 2473 $\pm$ 24 & 5/5 & -- \\
+\midrule
+CS4 bridge & GA, pop.\ 20 & 9139 $\pm$ 1334 & -9.8 & 12462 $\pm$ 3256 & 9/10 & 9.3e-4, $-1.00$ \\
+ & GA, pop.\ 8 & 8482 $\pm$ 1961 & -1.5 & 9400 $\pm$ 2359 & 8/10 & 0.002, $-1.00$ \\
+ & Random & 9064 $\pm$ 1664 & -11.8 & 12516 $\pm$ 1679 & 9/10 & 9.3e-4, $-1.00$ \\
+ & Local search & 9521 $\pm$ 2726 & -6.7 & 8628 $\pm$ 2190 & 7/10 & 0.003, $-1.00$ \\
+ & Single-flip & 4171 $\pm$ 192 & +9.1 & 7406 $\pm$ 1008 & 10/10 & 6.8e-4, $-1.00$ \\
+ & Decode & 3253 $\pm$ 32 & +6.4 & 5769 $\pm$ 1911 & 10/10 & 6.8e-4, $-1.00$ \\
+ & Block & 3235 $\pm$ 52 & +12.3 & 3603 $\pm$ 143 & 10/10 & -- \\
+\midrule
+CS5 dome & GA, pop.\ 20 & 3758 $\pm$ 766 & -1.5 & 5301 $\pm$ 2453 & 5/5 & 0.476, $-1.00$ \\
+ & GA, pop.\ 8 & 3154 $\pm$ 683 & +11.2 & 3816 $\pm$ 589 & 5/5 & 0.476, $-1.00$ \\
+ & Random & 4135 $\pm$ 649 & +0.9 & 4891 $\pm$ 630 & 3/5 & 1.000, $-1.00$ \\
+ & Local search & 4648 $\pm$ 1363 & +3.1 & 4066 $\pm$ 697 & 4/5 & 0.841, $-1.00$ \\
+ & Single-flip & 2080 $\pm$ 129 & +29.5 & 3033 $\pm$ 151 & 5/5 & 0.476, $-1.00$ \\
+ & Decode & 2243 $\pm$ 72 & +26.2 & 4412 $\pm$ 867 & 5/5 & 0.476, $-1.00$ \\
+ & Block & 2205 $\pm$ 54 & +24.2 & 2656 $\pm$ 38 & 5/5 & -- \\
+\midrule
+CS6 vault & GA, pop.\ 20 & 2079 $\pm$ 564 & +0.8 & 3301 $\pm$ 1274 & 4/5 & 0.857, $-1.00$ \\
+ & GA, pop.\ 8 & 1765 $\pm$ 160 & +7.2 & 2088 $\pm$ 157 & 5/5 & 0.476, $-1.00$ \\
+ & Random & 2488 $\pm$ 668 & -7.6 & 3290 $\pm$ 1057 & 4/5 & 0.857, $-1.00$ \\
+ & Local search & 2661 $\pm$ 712 & +3.9 & 2431 $\pm$ 461 & 4/5 & 0.857, $-1.00$ \\
+ & Single-flip & 1033 $\pm$ 44 & +32.4 & 1500 $\pm$ 89 & 5/5 & 0.857, $-0.92$ \\
+ & Decode & 1124 $\pm$ 28 & +23.5 & 3089 $\pm$ 1108 & 5/5 & 0.476, $-1.00$ \\
+ & Block & 1133 $\pm$ 46 & +26.7 & 1370 $\pm$ 33 & 5/5 & -- \\
+\bottomrule
+\end{tabular}
+\normalsize
+\end{table}

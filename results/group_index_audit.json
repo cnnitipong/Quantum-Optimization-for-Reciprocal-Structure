@@ -1,0 +1,198 @@
+{
+  "root_cause": "_hex_nexorade_core's face_ring(a,b,c) returned the MAX axial ring (0=centre) of a triangular face's 3 vertices, clamped to [0,rings], and group_ring_cap defaulted to rings+1 (one section-group family per ring INCLUDING a ring-0 'centre' family). But a triangular face can never have all 3 vertices at axial ring 0 -- there is exactly one node at ring 0 (the hex-grid's centre point), and 3 distinct nodes are needed to form a face -- so face_ring() could structurally never return 0 for any real face, for ANY (rings, edge) combination. Ring-family 0 (group indices 0,1,2 of every hex_nexorade/rf_dome model) was therefore always-empty by construction, not a parameter-specific accident: verified analytically (face_ring range check) and numerically (face_ring distribution for rings=1..6, minimum observed ring is always 1) below. For CS3's hex_nexorade(3, 2.2, 0.25): n_groups was reported as (rings+1)*3=12, but only ring families 1,2,3 (9 groups) ever carry a beam element; groups 0,1,2 (ring family 0) are permanently empty, inflating CS3's F1 sizing QUBO by 3 groups x 8 CHS sections = 24 phantom (structurally inert) qubits, from a true 9*8=72 to a reported 12*8=96.",
+  "fix": "code/reciprocal_geom_v2.py _hex_nexorade_core: face_ring(a,b,c) now returns (min(int(r), rings) - 1), shifting the family index to a contiguous 0-based range [0, rings-1] with no unreachable leading family; group_ring_cap now defaults to `rings` (was `rings+1`) when max_group_rings is None. n_groups = group_ring_cap*3 is unchanged as a formula -- it now correctly evaluates to the TRUE active group count. Geometry (node coordinates, element i/j connectivity, support_idx, load_idx) is bit-for-bit UNCHANGED by this fix -- verified by rebuilding hex_nexorade(3,2.2,0.25) under the pre-fix and post-fix face_ring() definitions side by side: identical node list, identical element list (comparing every element's i/j/kind/member_id, ignoring only the group label), identical support_idx and load_idx. Every beam element's group label is uniformly shifted by exactly -3 (i.e. -1 per ring family x 3 groups/ring), a pure relabeling consistent with removing exactly the one always-empty leading ring family. lam_per_ring (used only by the deprecated/superseded rf_dome and rf_dome_complex, not by any current headline generator) is unaffected in practice: its docstring length convention is updated from `rings+1` to `rings`, but since the previous index 0 was already dead code (face_ring never returned 0), no caller passing a list of length rings+1 or rings can go out of bounds either way -- purely a documentation/consistency correction.",
+  "hex_nexorade(3,2.2,0.25)_CS3_AFTER_FIX": {
+    "n_groups_reported": 9,
+    "n_groups_active": 9,
+    "empty_groups": [],
+    "total_beam_elements": 240,
+    "per_group_counts": {
+      "0": 9,
+      "1": 12,
+      "2": 6,
+      "3": 27,
+      "4": 36,
+      "5": 18,
+      "6": 45,
+      "7": 54,
+      "8": 33
+    },
+    "note": "n_groups now 9 (was 12); all 9 groups active/non-empty; 240 beam elements total, unchanged from before the fix; sizing QUBO is now 9*8=72 bits (was 96) -- 24 phantom bits removed."
+  },
+  "face_ring_defect_sweep_rings_1_to_6": {
+    "description": "Raw (pre-fix) face_ring() distribution vs `rings`, for hex_nexorade's own edge=2.2. Ring value 0 NEVER occurs at any rings -- proof the empty-ring-0-family defect is structural, present for every valid (rings, edge).",
+    "data": {
+      "1": {
+        "1": 5
+      },
+      "2": {
+        "1": 6,
+        "2": 16
+      },
+      "3": {
+        "1": 6,
+        "2": 18,
+        "3": 27
+      },
+      "4": {
+        "1": 6,
+        "2": 18,
+        "3": 30,
+        "4": 38
+      },
+      "5": {
+        "1": 6,
+        "2": 18,
+        "3": 30,
+        "4": 42,
+        "5": 49
+      },
+      "6": {
+        "1": 6,
+        "2": 18,
+        "3": 30,
+        "4": 42,
+        "5": 54,
+        "6": 60
+      }
+    }
+  },
+  "rf_dome_old_superseded_note": "rf_dome (old, non-'2' generator, shares _hex_nexorade_core with hex_nexorade) inherits the identical fix by construction (same shared function) but is NOT part of any currently-headline case study: CS4's geometry search (cs4_dome2.py) and dome-fixed sizing (dome2_sizing.py) were already migrated to rf_dome2 (a different, annulus-indexed ring family that starts at a real ring-0 by construction -- see below, confirmed clean) well before this audit. rf_dome/rf_dome_complex remain importable only for deprecated/superseded historical scripts (cs4_v2.py, r6_uls_v2.py's old recover_cs4, review_rd/re/rh, cs4_complex.py/dome_sizing.py's rf_dome_complex path) whose output files are not cited in results_v2/complex_summary.md or the current manuscript headline numbers; not re-run as part of this fix.",
+  "square_nexorade(6,6,2.5,0.25)_CS2_CS5": {
+    "n_groups_reported": 12,
+    "n_groups_active": 12,
+    "empty_groups": [],
+    "total_beam_elements": 160,
+    "per_group_counts": {
+      "0": 32,
+      "1": 32,
+      "2": 21,
+      "3": 21,
+      "4": 16,
+      "5": 16,
+      "6": 8,
+      "7": 8,
+      "8": 2,
+      "9": 2,
+      "10": 1,
+      "11": 1
+    },
+    "verdict": "CLEAN -- no empty groups"
+  },
+  "square_nexorade(5,5,2.5,0.25)_FIGURE_ONLY_not_a_case_study": {
+    "n_groups_reported": 12,
+    "n_groups_active": 8,
+    "empty_groups": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "total_beam_elements": 104,
+    "per_group_counts": {
+      "0": 24,
+      "1": 24,
+      "2": 16,
+      "3": 16,
+      "4": 8,
+      "5": 8,
+      "6": 4,
+      "7": 4
+    },
+    "verdict": "DEFECTIVE FOR THIS (5,5) PARAMETER CHOICE ONLY (groups 8-11 empty because max_ring=3 is never reached at nx=ny=5 -- true max hub ring is 1) BUT OUT OF SCOPE: this call is used ONLY by make_figures_v2.py panel (c) of the small illustrative \"construction concept\" schematic figure, which draws every member line in a single fixed color (no group-based coloring or n_groups-driven QUBO/qubit count derived from it) -- does not feed any case-study sizing QUBO, qubit count, or reported result. No fix applied (would require either capping nx=ny=5 differently or accepting a purely-illustrative geometry has unreachable groups; deferred since it affects nothing numeric)."
+  },
+  "rf_dome2(n_sect=7,n_ring=4,max_group_rings=4)_CS4": {
+    "n_groups_reported": 12,
+    "n_groups_active": 12,
+    "empty_groups": [],
+    "total_beam_elements": 518,
+    "per_group_counts": {
+      "0": 8,
+      "1": 14,
+      "2": 13,
+      "3": 22,
+      "4": 42,
+      "5": 34,
+      "6": 36,
+      "7": 70,
+      "8": 55,
+      "9": 50,
+      "10": 98,
+      "11": 76
+    },
+    "verdict": "CLEAN -- no empty groups. rf_dome2 keys ring family by the ANNULUS index between successive rings (0=innermost annulus, touching the apex node), which is a real, populated face family from i=0 by construction (unlike hex_nexorade's per-VERTEX ring, whose ring-0 is a single unreachable apex point) -- structurally immune to this defect."
+  },
+  "rf_vault_hex2(n_rows=8,n_cols=8,default_n_section_groups=12)": {
+    "n_groups_reported": 12,
+    "n_groups_active": 12,
+    "empty_groups": [],
+    "total_beam_elements": 570,
+    "per_group_counts": {
+      "0": 76,
+      "1": 28,
+      "2": 41,
+      "3": 68,
+      "4": 28,
+      "5": 74,
+      "6": 35,
+      "7": 69,
+      "8": 33,
+      "9": 35,
+      "10": 69,
+      "11": 14
+    },
+    "verdict": "CLEAN -- no empty groups. Section band index is a continuous fraction-of-span band_of(), not a discrete per-vertex ring, so band 0 is always populated by hubs/faces nearest the row-0 springing line."
+  },
+  "davinci_bridge2(n_bays=24)_CS6": {
+    "n_groups_reported": 16,
+    "n_groups_active": 16,
+    "empty_groups": [],
+    "total_beam_elements": 164,
+    "per_group_counts": {
+      "0": 6,
+      "1": 6,
+      "2": 6,
+      "3": 6,
+      "4": 6,
+      "5": 6,
+      "6": 6,
+      "7": 6,
+      "8": 6,
+      "9": 6,
+      "10": 6,
+      "11": 6,
+      "12": 22,
+      "13": 22,
+      "14": 24,
+      "15": 24
+    },
+    "verdict": "CLEAN -- no empty groups. Longitudinal groups = rail x quarter-span (always 4 reachable quarters for n_bays>=4); rung groups = parity x half-segment, both always fully populated."
+  },
+  "summary": {
+    "defective_generators": [
+      "hex_nexorade (and shared-core rf_dome, superseded/out of current headline scope)"
+    ],
+    "clean_generators": [
+      "square_nexorade (case-study params)",
+      "rf_dome2",
+      "rf_vault_hex2",
+      "davinci_bridge2"
+    ],
+    "case_studies_requiring_rerun": [
+      "CS3 (hex_nexorade) -- ONLY case study whose generator n_groups changed"
+    ],
+    "case_studies_unaffected": [
+      "CS1 (fan validation, no groups)",
+      "CS2 (square_nexorade)",
+      "CS4 (rf_dome2)",
+      "CS5 (square_nexorade)",
+      "CS6 (davinci_bridge2)",
+      "CS-VAULT-HEX-GEO / vault-fixed sizing (rf_vault_hex2)",
+      "dome-fixed sizing (rf_dome2)"
+    ],
+    "cs3_qubit_count_before": 96,
+    "cs3_qubit_count_after": 72,
+    "cs3_n_groups_before": 12,
+    "cs3_n_groups_after": 9
+  }
+}
